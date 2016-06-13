@@ -77,8 +77,8 @@ class TestHookServer(unittest.TestCase):
         self.assertTrue(True)
 
     def test_post(self):
-        httpHandle = httplib.HTTPConnection('localhost', 8080, timeout=1)
-        httpHandle.request('POST', '/', issues_post_json)
+        httpHandle = httplib.HTTPConnection('localhost', 8888, timeout=1)
+        httpHandle.request('POST', '/gitlab/issues', issues_post_json)
         resp = httpHandle.getresponse()
         print '[%s - %s]' % (resp.status, resp.reason)
         print resp.read()
